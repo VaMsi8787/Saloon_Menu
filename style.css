@@ -1,7 +1,7 @@
 /* =====================================================
    90'S KID UNISEX SALOON — UNIFIED MENU
    Single page, gender-toggle driven theming.
-   data-gender="mens"   → gold accent
+   data-gender="mens"   → blue accent
    data-gender="womens" → rose accent
    ===================================================== */
 :root {
@@ -14,6 +14,8 @@
   --gold: #f4b400;
   --gold-soft: #d9a441;
   --rose: #e08ab2;
+  --blue: #38bdf8;
+  --blue-soft: #7dd3fc;
   --ink: #f5f0e6;
   --muted: #9fb0a5;
   --muted-2: #7c8d82;
@@ -21,18 +23,18 @@
   --maxw: 480px;
 
   /* dynamic accent — overridden per gender below */
-  --accent: var(--gold);
-  --accent-dim: rgba(244, 180, 0, 0.35);
-  --accent-bg: rgba(244, 180, 0, 0.06);
-  --accent-border: rgba(244, 180, 0, 0.55);
+  --accent: var(--blue);
+  --accent-dim: rgba(56, 189, 248, 0.35);
+  --accent-bg: rgba(56, 189, 248, 0.08);
+  --accent-border: rgba(56, 189, 248, 0.55);
 }
 
 /* ---- MENS accent (default) ---- */
 .page[data-gender="mens"] {
-  --accent: var(--gold);
-  --accent-dim: rgba(244, 180, 0, 0.35);
-  --accent-bg: rgba(244, 180, 0, 0.06);
-  --accent-border: rgba(244, 180, 0, 0.55);
+  --accent: var(--blue);
+  --accent-dim: rgba(56, 189, 248, 0.35);
+  --accent-bg: rgba(56, 189, 248, 0.08);
+  --accent-border: rgba(56, 189, 248, 0.55);
 }
 
 /* ---- WOMENS accent ---- */
@@ -148,35 +150,39 @@ body {
 }
 
 .page[data-gender="mens"] .toggle-pill {
-  background: var(--gold);
+  background: var(--blue);
 }
 
 /* =====================================================
-   GHOST WATERMARK
+   GHOST WATERMARK — faint repeating text behind header
    ===================================================== */
 .ghost {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 560px;
+  top: 0; left: 0; right: 0; bottom: 0;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 92%);
-  mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 92%);
+  /* fade out at the very bottom so footer is readable */
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 80%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 80%, transparent 100%);
 }
-
 .ghost span {
   display: block;
   font-family: 'Anton', sans-serif;
-  font-size: 56px;
-  line-height: 1.05;
+  font-size: 52px;
+  line-height: 1.08;
   letter-spacing: 1px;
-  color: rgba(244, 240, 230, 0.035);
+  color: rgba(244,240,230,0.032);
   white-space: nowrap;
   text-align: center;
   text-transform: uppercase;
+  user-select: none;
+}
+/* Strikethrough variant */
+.ghost-strike {
+  text-decoration: line-through;
+  text-decoration-color: rgba(244,240,230,0.06);
+  color: rgba(244,240,230,0.022) !important;
 }
 
 /* =====================================================
@@ -185,8 +191,21 @@ body {
 header {
   position: relative;
   z-index: 1;
-  padding: 28px 22px 22px;
+  padding: 28px 22px 18px;
   text-align: center;
+}
+
+/* ---- logo image ---- */
+.logo-img {
+  display: block;
+  margin: 0 auto 4px;
+  width: min(140px, 40vw);
+  height: auto;
+  /* logo has a black background — mix-blend-mode strips it */
+  mix-blend-mode: lighten;
+  filter: drop-shadow(0 4px 18px rgba(193,53,46,0.35));
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* ---- badge ---- */
@@ -229,121 +248,6 @@ header {
 .page[data-gender="womens"] .badge-womens,
 .page[data-gender="womens"] .badge-label-womens {
   display: inline;
-}
-
-/* ---- logo ---- */
-.logo {
-  font-family: 'Anton', sans-serif;
-  font-size: 54px;
-  line-height: 0.92;
-  letter-spacing: 1px;
-  margin: 0;
-  text-transform: uppercase;
-  background: linear-gradient(180deg, #e2554c 0%, var(--red) 55%, var(--red-deep) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.35));
-}
-
-.logo .kid {
-  color: var(--gold);
-  -webkit-text-fill-color: var(--gold);
-}
-
-.tagline {
-  margin: 8px 0 0;
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-/* ---- brandbar ---- */
-.brandbar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: center;
-  margin: 22px 0 6px;
-}
-
-.brandbar .line {
-  height: 1px;
-  width: 34px;
-  background: linear-gradient(90deg, transparent, var(--panel-line));
-}
-
-.brandbar .line.r {
-  background: linear-gradient(90deg, var(--panel-line), transparent);
-}
-
-.icon {
-  width: 30px;
-  height: 30px;
-  flex: none;
-  transition: opacity 0.4s, transform 0.4s;
-}
-
-/* Show/hide the correct icon */
-.icon-womens {
-  position: absolute;
-  opacity: 0;
-  transform: scale(0.8) rotate(-20deg);
-  pointer-events: none;
-}
-
-.brandbar {
-  position: relative;
-}
-
-.page[data-gender="mens"] .icon-mens {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-}
-
-.page[data-gender="mens"] .icon-womens {
-  opacity: 0;
-  transform: scale(0.8) rotate(20deg);
-}
-
-.page[data-gender="womens"] .icon-womens {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-  position: relative;
-}
-
-.page[data-gender="womens"] .icon-mens {
-  opacity: 0;
-  transform: scale(0.8) rotate(-20deg);
-  position: absolute;
-}
-
-.salon-name {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.menu-script {
-  font-family: 'Great Vibes', cursive;
-  font-size: 34px;
-  color: var(--gold-soft);
-  margin: 2px 0 0;
-  line-height: 1;
-}
-
-.menu-sub {
-  margin: 10px 0 0;
-  font-size: 12px;
-  color: var(--muted-2);
-  letter-spacing: 0.5px;
-}
-
-/* show/hide subtitle text */
-.sub-womens {
-  display: none;
 }
 
 .page[data-gender="womens"] .sub-mens {
@@ -537,277 +441,314 @@ footer {
 }
 
 /* =====================================================
+   SOCIAL MEDIA LINKS
+   ===================================================== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--panel-line);
+  background: rgba(255,255,255,0.04);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.22s ease, color 0.22s ease,
+              border-color 0.22s ease, background 0.22s ease,
+              box-shadow 0.22s ease;
+  cursor: pointer;
+}
+
+.social-btn .social-icon,
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 4px;
+  transition: transform 0.22s ease, filter 0.22s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+}
+
+.social-btn:hover .social-icon,
+.social-btn:hover svg {
+  transform: scale(1.15);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+}
+
+/* Platform-specific base & hover styles */
+#social-instagram {
+  border-color: rgba(225,48,108,0.3);
+  background: rgba(225,48,108,0.06);
+}
+#social-instagram:hover {
+  color: #fff;
+  border-color: #e1306c;
+  background: rgba(225,48,108,0.18);
+  box-shadow: 0 0 16px rgba(225,48,108,0.35);
+  transform: translateY(-2px) scale(1.04);
+}
+
+#social-facebook {
+  border-color: rgba(24,119,242,0.3);
+  background: rgba(24,119,242,0.06);
+}
+#social-facebook:hover {
+  color: #fff;
+  border-color: #1877f2;
+  background: rgba(24,119,242,0.18);
+  box-shadow: 0 0 16px rgba(24,119,242,0.35);
+  transform: translateY(-2px) scale(1.04);
+}
+
+#social-whatsapp {
+  border-color: rgba(37,211,102,0.3);
+  background: rgba(37,211,102,0.06);
+}
+#social-whatsapp:hover {
+  color: #fff;
+  border-color: #25d366;
+  background: rgba(37,211,102,0.18);
+  box-shadow: 0 0 16px rgba(37,211,102,0.35);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* =====================================================
+   GOOGLE REVIEW WIDGET
+   ===================================================== */
+.review-wrap {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.review-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 440px;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(244, 180, 0, 0.28);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(244, 180, 0, 0.05) 100%);
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.24s ease, border-color 0.24s ease,
+              background 0.24s ease, box-shadow 0.24s ease;
+  cursor: pointer;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 180, 0, 0.65);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(244, 180, 0, 0.12) 100%);
+  box-shadow: 0 6px 26px rgba(244, 180, 0, 0.24);
+}
+
+.review-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.google-logo {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-stars {
+  color: #ffb800;
+  font-size: 13px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.review-title {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.35;
+  font-family: 'Poppins', sans-serif;
+}
+
+.review-title strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.review-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(244, 180, 0, 0.12);
+  border: 1px solid rgba(244, 180, 0, 0.35);
+  color: var(--gold);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-family: 'Poppins', sans-serif;
+  flex: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.review-card:hover .review-action {
+  background: rgba(244, 180, 0, 0.26);
+  border-color: rgba(244, 180, 0, 0.6);
+  color: #fff;
+}
+
+.review-arrow {
+  width: 13px;
+  height: 13px;
+  flex: none;
+  transition: transform 0.2s ease;
+}
+
+.review-card:hover .review-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* =====================================================
    RESPONSIVE — small mobile (≤359px)
    ===================================================== */
 @media (max-width: 359px) {
-  .logo {
-    font-size: 42px;
-  }
+  .logo-img { width: min(100px, 36vw); }
 
-  .menu-script {
-    font-size: 28px;
-  }
+  .cat-title { font-size: 24px; }
 
-  .cat-title {
-    font-size: 24px;
-  }
+  header { padding: 14px 14px 12px; }
 
-  header {
-    padding: 18px 14px 16px;
-  }
+  .price-table { padding: 4px 10px; }
 
-  .price-table {
-    padding: 4px 10px;
-  }
+  .svc-name { font-size: 13px; }
 
-  .svc-name {
-    font-size: 13px;
-  }
+  .price-current { font-size: 14px; }
 
-  .price-current {
-    font-size: 14px;
-  }
+  .gender-btn { padding: 7px 12px; font-size: 11px; }
 
-  .gender-btn {
-    padding: 7px 12px;
-    font-size: 11px;
-  }
+  .review-card { padding: 10px 12px; gap: 8px; border-radius: 12px; }
+  .review-title { font-size: 11px; }
+  .review-action { padding: 4px 8px; font-size: 10px; }
 }
 
 /* =====================================================
    RESPONSIVE — tablet (≥600px)
    ===================================================== */
 @media (min-width: 600px) {
-  :root {
-    --maxw: 680px;
-  }
+  :root { --maxw: 680px; }
 
-  .logo {
-    font-size: 68px;
-  }
+  .logo-img { width: min(160px, 36vw); }
 
-  .tagline {
-    font-size: 13px;
-    letter-spacing: 4px;
-  }
+  .menu-sub { font-size: 13px; }
 
-  .salon-name {
-    font-size: 24px;
-  }
+  header { padding: 32px 32px 22px; }
 
-  .menu-script {
-    font-size: 40px;
-  }
+  .badge { font-size: 12px; padding: 6px 16px; }
 
-  .menu-sub {
-    font-size: 13px;
-  }
+  .gender-btn { font-size: 13px; padding: 9px 22px; }
 
-  header {
-    padding: 36px 32px 28px;
-  }
+  .service-panel { padding: 10px 24px 14px; }
 
-  .badge {
-    font-size: 12px;
-    padding: 6px 16px;
-  }
+  .cat-title { font-size: 36px; }
 
-  .gender-btn {
-    font-size: 13px;
-    padding: 9px 22px;
-  }
+  .price-table { padding: 8px 22px; }
 
-  .brandbar .icon {
-    width: 36px;
-    height: 36px;
-  }
+  .price-row { padding: 14px 0; gap: 20px; }
 
-  .brandbar .line {
-    width: 48px;
-  }
+  .svc-name { font-size: 15.5px; }
 
-  .service-panel {
-    padding: 10px 24px 14px;
-  }
+  .price-current { font-size: 17px; }
 
-  .cat-title {
-    font-size: 36px;
-  }
+  .svc-note { font-size: 11px; }
 
-  .price-table {
-    padding: 8px 22px;
-  }
+  footer { padding: 32px 32px 42px; }
 
-  .price-row {
-    padding: 14px 0;
-    gap: 20px;
-  }
+  .visit-line { font-size: 30px; }
 
-  .svc-name {
-    font-size: 15.5px;
-  }
-
-  .price-current {
-    font-size: 17px;
-  }
-
-  .svc-note {
-    font-size: 11px;
-  }
-
-  footer {
-    padding: 32px 32px 42px;
-  }
-
-  .visit-line {
-    font-size: 30px;
-  }
-
-  .contact {
-    font-size: 13px;
-  }
+  .contact { font-size: 13px; }
 }
 
 /* =====================================================
    RESPONSIVE — desktop (≥1024px)
    ===================================================== */
 @media (min-width: 1024px) {
-  :root {
-    --maxw: 1100px;
-  }
+  :root { --maxw: 1100px; }
 
-  .ghost span {
-    font-size: 96px;
-  }
+  .logo-img { width: min(190px, 20vw); }
 
-  .ghost {
-    height: 720px;
-  }
+  .badge { font-size: 13px; padding: 7px 20px; margin-bottom: 20px; }
 
-  .logo {
-    font-size: 88px;
-    letter-spacing: 2px;
-  }
+  .gender-btn { font-size: 14px; padding: 10px 28px; }
 
-  .tagline {
-    font-size: 14px;
-    letter-spacing: 5px;
-  }
+  .menu-sub { font-size: 14px; margin-top: 10px; }
 
-  .badge {
-    font-size: 13px;
-    padding: 7px 20px;
-    margin-bottom: 24px;
-  }
-
-  .gender-btn {
-    font-size: 14px;
-    padding: 10px 28px;
-  }
-
-  .brandbar .icon {
-    width: 44px;
-    height: 44px;
-  }
-
-  .brandbar .line {
-    width: 70px;
-  }
-
-  .brandbar {
-    margin: 28px 0 8px;
-    gap: 18px;
-  }
-
-  .salon-name {
-    font-size: 28px;
-  }
-
-  .menu-script {
-    font-size: 50px;
-  }
-
-  .menu-sub {
-    font-size: 14px;
-    margin-top: 14px;
-  }
-
-  header {
-    padding: 54px 48px 32px;
-  }
+  header { padding: 48px 48px 28px; }
 
   .service-panel {
     padding: 14px 48px 20px;
     display: grid;
-    /* always layout-grid, visibility via .active */
     grid-template-columns: 1fr 1fr;
     gap: 0 36px;
     align-items: start;
   }
 
-  /* Override display:none for inactive panel on desktop — use opacity only */
-  .service-panel:not(.active) {
-    display: none;
-  }
+  .service-panel:not(.active) { display: none; }
 
-  /* Hair Services always spans full width */
-  .service-panel .category:first-child {
-    grid-column: 1 / -1;
-  }
+  .service-panel .category:first-child { grid-column: 1 / -1; }
 
-  .cat-title {
-    font-size: 44px;
-  }
+  .cat-title { font-size: 44px; }
 
-  .cat-sub {
-    font-size: 13px;
-    margin-bottom: 18px;
-  }
+  .cat-sub { font-size: 13px; margin-bottom: 18px; }
 
-  .price-table {
-    padding: 10px 28px;
-  }
+  .price-table { padding: 10px 28px; }
 
-  .price-row {
-    padding: 16px 0;
-    gap: 28px;
-  }
+  .price-row { padding: 16px 0; gap: 28px; }
 
-  .svc-name {
-    font-size: 16.5px;
-  }
+  .svc-name { font-size: 16.5px; }
 
-  .price-current {
-    font-size: 18.5px;
-  }
+  .price-current { font-size: 18.5px; }
 
-  .svc-note {
-    font-size: 12px;
-  }
+  .svc-note { font-size: 12px; }
 
-  footer {
-    padding: 40px 48px 54px;
-  }
+  footer { padding: 40px 48px 54px; }
 
-  .visit-line {
-    font-size: 36px;
-  }
+  .visit-line { font-size: 36px; }
 
-  .contact {
-    font-size: 14px;
-    line-height: 2;
-  }
+  .contact { font-size: 14px; line-height: 2; }
 }
 
 /* =====================================================
    RESPONSIVE — wide desktop (≥1280px)
    ===================================================== */
 @media (min-width: 1280px) {
-  :root {
-    --maxw: 1260px;
-  }
-
-  .logo {
-    font-size: 100px;
-  }
+  :root { --maxw: 1260px; }
+  .logo-img { width: min(210px, 17.5vw); }
 }
