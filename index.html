@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>90's Kid Unisex Saloon — Service Menu</title>
+<meta name="description" content="Complete service menu for 90's Kid Unisex Saloon, Kurmanapalem — Men's and Women's services with prices in ₹.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page" id="page" data-gender="mens">
+
+  <!-- ===== ghost watermark ===== -->
+  <div class="ghost">
+    <span>TO INFINITY &amp; BEYOND</span>
+    <span>UNISEX SALOON</span>
+    <span>90'S KID</span>
+    <span>STYLE ATTITUDE</span>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+
+    <!-- Gender toggle switcher -->
+    <div class="gender-toggle" id="gender-toggle" role="group" aria-label="Select service menu">
+      <button class="gender-btn active" id="btn-mens" data-target="mens" aria-pressed="true">
+        <svg class="gbtn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="7" r="4.5" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Men's
+      </button>
+      <button class="gender-btn" id="btn-womens" data-target="womens" aria-pressed="false">
+        <svg class="gbtn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="8" r="4.5" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 13v8M9 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Women's
+      </button>
+      <span class="toggle-pill" id="toggle-pill" aria-hidden="true"></span>
+    </div>
+
+    <!-- Animated badge -->
+    <div class="badge-wrap">
+      <span class="badge" id="main-badge">
+        <svg class="badge-svg badge-mens" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="badge-svg badge-womens" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 13v8M9 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="badge-label-mens">MEN'S EDITION</span>
+        <span class="badge-label-womens">WOMEN'S EDITION</span>
+      </span>
+    </div>
+
+    <h1 class="logo">90'<span class="kid">S</span> KID</h1>
+    <p class="tagline">To Infinity &amp; Beyond</p>
+
+    <div class="brandbar">
+      <span class="line"></span>
+      <!-- Men's SVG (scissors/barber) -->
+      <svg class="icon icon-mens" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="23" fill="#14100e" stroke="rgba(244,180,0,0.35)"/>
+        <rect x="10" y="22.5" width="20" height="3" rx="1.5" fill="#f5f0e6"/>
+        <rect x="12" y="17" width="2" height="14" fill="#f5f0e6"/>
+        <rect x="16" y="17" width="2" height="14" fill="#f5f0e6"/>
+        <rect x="20" y="17" width="2" height="14" fill="#f5f0e6"/>
+        <circle cx="35" cy="18" r="3.4" stroke="#f5f0e6" stroke-width="1.6"/>
+        <circle cx="35" cy="30" r="3.4" stroke="#f5f0e6" stroke-width="1.6"/>
+        <line x1="32.3" y1="20.2" x2="16" y2="24" stroke="#f5f0e6" stroke-width="1.6"/>
+        <line x1="32.3" y1="27.8" x2="16" y2="24" stroke="#f5f0e6" stroke-width="1.6"/>
+      </svg>
+      <!-- Women's SVG (scissors/mirror) -->
+      <svg class="icon icon-womens" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="23" fill="#14100e" stroke="rgba(224,138,178,0.35)"/>
+        <circle cx="16" cy="17" r="4" stroke="#f5f0e6" stroke-width="1.6"/>
+        <circle cx="16" cy="31" r="4" stroke="#f5f0e6" stroke-width="1.6"/>
+        <line x1="19.5" y1="19.5" x2="36" y2="29" stroke="#f5f0e6" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="19.5" y1="28.5" x2="36" y2="19" stroke="#f5f0e6" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span class="line r"></span>
+    </div>
+
+    <p class="salon-name">90s Kid Unisex Saloon</p>
+    <p class="menu-script">Service Menu</p>
+    <p class="menu-sub" id="menu-sub">
+      <span class="sub-mens">Men's Section · Prices in ₹ · Regular Price</span>
+      <span class="sub-womens">Women's Section · Prices in ₹ · Regular Price</span>
+    </p>
+  </header>
+
+  <!-- =====================================================
+       MEN'S SERVICE SECTIONS
+       ===================================================== -->
+  <main class="service-panel" id="panel-mens">
+
+    <section class="category" id="mens-hair">
+      <h2 class="cat-title">Hair Services</h2>
+      <p class="cat-sub">Includes shampoo wash where noted</p>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">HairCut + Shaving</span></div><div class="price-cols"><span class="price-current">₹150</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Only Shaving</span></div><div class="price-cols"><span class="price-current">₹50</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Beard Trimming &amp; Shape</span></div><div class="price-cols"><span class="price-current">₹60</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">HairCut + Shaving + Oil</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Children's Haircut</span></div><div class="price-cols"><span class="price-current">₹80</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Wash</span></div><div class="price-cols"><span class="price-current">₹50</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="mens-colour">
+      <h2 class="cat-title">Hair Colour</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Cap Colour Highlights</span></div><div class="price-cols"><span class="price-current">₹299</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Black Henna</span></div><div class="price-cols"><span class="price-current">₹80</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Red Henna</span></div><div class="price-cols"><span class="price-current">₹99</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Natural Black Gel</span></div><div class="price-cols"><span class="price-current">₹130</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Revlon Black</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Garnier</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Streax</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Burgundy Colour</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Dark Red</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Gold Colour</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Copper Red</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="mens-oil">
+      <h2 class="cat-title">Oil Massage</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Normal Oil Massage</span></div><div class="price-cols"><span class="price-current">₹60</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Coconut Oil Massage</span><span class="svc-note">20 Min</span></div><div class="price-cols"><span class="price-current">₹99</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Navratna Oil Massage</span><span class="svc-note">20 Min</span></div><div class="price-cols"><span class="price-current">₹99</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Bajaj Almond Oil Massage</span><span class="svc-note">20 Min</span></div><div class="price-cols"><span class="price-current">₹99</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Cool Oil Massage</span><span class="svc-note">20 Min</span></div><div class="price-cols"><span class="price-current">₹99</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="mens-spa">
+      <h2 class="cat-title">Hair Spa &amp; Treatments</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Dandruff Treatment</span></div><div class="price-cols"><span class="price-current">₹599</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Smoothing</span></div><div class="price-cols"><span class="price-current">₹550</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Loss Treatment</span></div><div class="price-cols"><span class="price-current">₹699</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Straightening</span></div><div class="price-cols"><span class="price-current">₹1,999</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Curling</span></div><div class="price-cols"><span class="price-current">₹2,200</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="mens-facial">
+      <h2 class="cat-title">Facial Services</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Gold Facial</span></div><div class="price-cols"><span class="price-current">₹899</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Popeye Facial</span></div><div class="price-cols"><span class="price-current">₹499</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Fruit Facial</span></div><div class="price-cols"><span class="price-current">₹599</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">D-Tan Facial</span></div><div class="price-cols"><span class="price-current">₹799</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Diamond Facial</span></div><div class="price-cols"><span class="price-current">₹1,100</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="mens-kits">
+      <h2 class="cat-title">Facial Kits</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Scrub</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">D-Tan</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Peel Off Mask</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Face &amp; Neck Bleach</span></div><div class="price-cols"><span class="price-current">₹230</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="mens-extra">
+      <h2 class="cat-title">Additional Services</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Pedicure</span></div><div class="price-cols"><span class="price-current">₹699</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hydra Facial</span></div><div class="price-cols"><span class="price-current">₹1,999</span></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       WOMEN'S SERVICE SECTIONS
+       ===================================================== -->
+  <main class="service-panel" id="panel-womens" aria-hidden="true">
+
+    <section class="category" id="womens-hair">
+      <h2 class="cat-title">Hair Services</h2>
+      <p class="cat-sub">Includes shampoo wash where noted</p>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Cut</span></div><div class="price-cols"><span class="price-current">₹150</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Cut + Hair Wash</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Wash</span></div><div class="price-cols"><span class="price-current">₹80</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Trimming</span></div><div class="price-cols"><span class="price-current">₹100</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Blow Dry</span></div><div class="price-cols"><span class="price-current">₹150</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Setting / Styling</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-colour">
+      <h2 class="cat-title">Hair Colour</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Black Henna</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Red Henna</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Natural Black Gel</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Revlon Black</span></div><div class="price-cols"><span class="price-current">₹249</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Garnier</span></div><div class="price-cols"><span class="price-current">₹249</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Streax</span></div><div class="price-cols"><span class="price-current">₹249</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Burgundy Colour</span></div><div class="price-cols"><span class="price-current">₹299</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Dark Red</span></div><div class="price-cols"><span class="price-current">₹299</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Gold Colour</span></div><div class="price-cols"><span class="price-current">₹349</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Copper Red</span></div><div class="price-cols"><span class="price-current">₹349</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Cap Colour Highlights</span></div><div class="price-cols"><span class="price-current">₹399</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Global Colour</span><span class="svc-note">Full head</span></div><div class="price-cols"><span class="price-current">₹599</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-spa">
+      <h2 class="cat-title">Hair Spa &amp; Treatments</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Dandruff Treatment</span></div><div class="price-cols"><span class="price-current">₹699</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Smoothing</span></div><div class="price-cols"><span class="price-current">₹799</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Loss Treatment</span></div><div class="price-cols"><span class="price-current">₹799</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Straightening</span></div><div class="price-cols"><span class="price-current">₹2,499</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hair Curling / Perming</span></div><div class="price-cols"><span class="price-current">₹2,799</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Keratin Treatment</span></div><div class="price-cols"><span class="price-current">₹3,499</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-oil">
+      <h2 class="cat-title">Oil Massage</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Normal Oil Massage</span></div><div class="price-cols"><span class="price-current">₹80</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Coconut Oil Massage</span><span class="svc-note">20 Min</span></div><div class="price-cols"><span class="price-current">₹120</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Navratna Oil Massage</span><span class="svc-note">20 Min</span></div><div class="price-cols"><span class="price-current">₹120</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Bajaj Almond Oil Massage</span><span class="svc-note">20 Min</span></div><div class="price-cols"><span class="price-current">₹120</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-facial">
+      <h2 class="cat-title">Facial Services</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Gold Facial</span></div><div class="price-cols"><span class="price-current">₹999</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Diamond Facial</span></div><div class="price-cols"><span class="price-current">₹1,199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Fruit Facial</span></div><div class="price-cols"><span class="price-current">₹699</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">D-Tan Facial</span></div><div class="price-cols"><span class="price-current">₹899</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Popeye Facial</span></div><div class="price-cols"><span class="price-current">₹599</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Hydra Facial</span></div><div class="price-cols"><span class="price-current">₹2,199</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-skin">
+      <h2 class="cat-title">Skin &amp; Bleach</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Scrub</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">D-Tan</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Peel Off Mask</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Face &amp; Neck Bleach</span></div><div class="price-cols"><span class="price-current">₹249</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Full Body Bleach</span></div><div class="price-cols"><span class="price-current">₹999</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Under Arm Bleach</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-threading">
+      <h2 class="cat-title">Threading</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Eyebrows</span></div><div class="price-cols"><span class="price-current">₹30</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Upper Lip</span></div><div class="price-cols"><span class="price-current">₹20</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Chin</span></div><div class="price-cols"><span class="price-current">₹20</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Forehead</span></div><div class="price-cols"><span class="price-current">₹20</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Full Face Threading</span></div><div class="price-cols"><span class="price-current">₹100</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-waxing">
+      <h2 class="cat-title">Waxing</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Half Arms</span></div><div class="price-cols"><span class="price-current">₹80</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Full Arms</span></div><div class="price-cols"><span class="price-current">₹149</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Half Legs</span></div><div class="price-cols"><span class="price-current">₹120</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Full Legs</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Under Arms</span></div><div class="price-cols"><span class="price-current">₹80</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Full Body Wax</span></div><div class="price-cols"><span class="price-current">₹799</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-nails">
+      <h2 class="cat-title">Manicure &amp; Pedicure</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Basic Manicure</span></div><div class="price-cols"><span class="price-current">₹299</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Basic Pedicure</span></div><div class="price-cols"><span class="price-current">₹399</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Deluxe Manicure</span></div><div class="price-cols"><span class="price-current">₹499</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Deluxe Pedicure</span></div><div class="price-cols"><span class="price-current">₹599</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Nail Polish Application</span></div><div class="price-cols"><span class="price-current">₹80</span></div></div>
+      </div>
+    </section>
+
+    <section class="category" id="womens-mehndi">
+      <h2 class="cat-title">Mehndi</h2>
+      <div class="price-table">
+        <div class="price-row"><div class="svc"><span class="svc-name">Simple Mehndi</span><span class="svc-note">Both Hands</span></div><div class="price-cols"><span class="price-current">₹99</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Arabic Mehndi</span><span class="svc-note">Both Hands</span></div><div class="price-cols"><span class="price-current">₹199</span></div></div>
+        <div class="price-row"><div class="svc"><span class="svc-name">Bridal Mehndi</span><span class="svc-note">Full Hands &amp; Feet</span></div><div class="price-cols"><span class="price-current">₹499</span></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p class="visit-line">Visit us for a fresh new look!</p>
+    <div class="contact">
+      <strong>Location:</strong> Near Ramkrishna EM School, Kurmanapalem<br>
+      <strong>Contact:</strong> <a href="tel:+919494936164">+91 94949 36164</a>
+    </div>
+  </footer>
+
+</div><!-- .page -->
+<script src="script.js"></script>
+</body>
+</html>
